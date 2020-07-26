@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body> 
+	
+<script> 
+// ******************************** Clouser ********************************
+// JavaScript variables can belong to the local or global scope.
+// Global variables can be made local (private) with closures.
+
+// example == 1 ---------------------
+
+	var add = (function () {
+	  var counter = 0;
+	  return  ()=> {counter += 1; return counter}
+	})();
+
+	// console.log(add())
+	// console.log(add())
+	// console.log(add())
+	
+// example == 2 ---------------------
+
+	// for (var i = 0; i < 5; i++) {
+	//   var btn = document.createElement('button');
+	//   btn.appendChild(document.createTextNode('Button ' + i));
+	//   btn.addEventListener('click', function(){ console.log(i); });
+	//   document.body.appendChild(btn);
+	// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script> 
+</body> 
+</html>

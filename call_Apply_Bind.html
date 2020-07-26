@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body> 
+
+<script> 
+//******************** Basic rules worth remembering:*******************************
+//1. “this” always refers to an object.
+//2. “this” refers to an object which calls the function it contains.
+//3. In the global context “this” refers to either window object or is undefined if the ‘strict mode’ is used.
+
+
+  // ********* Call :*******************************
+  // 1. barrow the function from other object
+  // 2. no need to call again
+  var obj = {
+    firstName: 'arvind',
+    lastName: 'yadav',
+    fullName: function(city, state){
+      console.log(this.firstName + ' ' + this.lastName + ' from ' + city + ' in '+ state);
+    }    
+  }
+var obj2 = {
+    firstName: 'arvind22',
+    lastName: 'yadav22',
+  }
+obj.fullName.call(obj2, 'banda', 'up'); 
+
+// ********* Apply ********
+// 1. pass arguments as array if u want more arguments
+// the only difference in call and apply is we can pass muliple arguments as a array
+// let arr= ['banda', 'uttarPradesh']
+// obj.fullName.apply(obj2, arr); 
+
+// ********* Bind ********
+//1. in bind u have to call the method (u can store in a variable)
+// let newName = obj.fullName.bind(obj2, 'banda', 'UP'); 
+// newName()
+</script> 
+</body> 
+</html>

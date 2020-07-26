@@ -1,0 +1,144 @@
+body {
+  font-family: "MuseoModerno", cursive;
+}
+.header {
+  height: 70px;
+}
+#my_cart_container {
+  width: 250px;
+  position: absolute;
+  right: 15px;
+  top: 73px;
+  box-shadow: 0px 3px 7px 0px #bdb8b8;
+  border-radius: 4px;
+  z-index: 9;
+  background: #fff;
+}
+#my_cart_container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  border-top: 1px solid #ddd;
+  color: #444;
+}
+#my_cart_btn {
+  cursor: pointer;
+  position: relative;
+}
+#my_cart_list {
+  position: absolute;
+  right: 0px;
+  top: 25px;
+  z-index: 99;
+  width: 300px;
+}
+#my_cart_list li {
+  color: #333333;
+}
+
+.item_img img {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+}
+.product_wrapper {
+  overflow: hidden;
+  width: 100%;
+  background: #f6f6f9;
+  min-height: 87vh;
+}
+.single_product {
+  background: blanchedalmond;
+  box-shadow: 0px 5px 9px 0px #dcd6d6;
+  margin: 25px 0 0px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  position: relative;
+}
+.pro_img img {
+  width: 100%;
+}
+.pro_title {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add_pro {
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: blue;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 28px;
+}
+.add_favourite {
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  border: 2px solid #fe8c00;
+}
+.fill_fav {
+  background: orange !important;
+}
+[job="delete"] {
+  cursor: pointer;
+}
+
+#search_bar {
+  position: relative;
+}
+#search_list {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 42px;
+  box-shadow: 0px 3px 3px 0px #bdb8b8c7;
+  border-radius: 4px;
+  z-index: 9;
+  background: #fff;
+}
+#search_list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  border-top: 1px solid #ddd;
+  color: #444;
+  cursor: pointer;
+}
+.action_div {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  display: none;
+}
+.action_div > div {
+  padding: 6px;
+  text-align: right;
+  margin: 2px 0;
+  color: cornsilk;
+  font-size: 13px;
+  cursor: pointer;
+}
+.single_product:hover .action_div {
+  display: block;
+}
+.pro_title > span {
+  text-transform: capitalize;
+}

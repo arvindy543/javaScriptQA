@@ -1,0 +1,62 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	letter-spacing: 1.2px;
+	background: cadetblue;
+}
+.header{ height: 60px; }
+.content_wrapper{
+    display: flex;
+    width: 100%;
+    /* flex: 1 1 100%; */
+    background: #fff;
+}
+.main_list{
+    /* flex: 1; */
+}
+.sub_list{
+    flex: 1;
+}
+.main_list li{
+	list-style: none;
+	padding: 10px 30px;
+	cursor: pointer;
+	background: #fff;
+	border-bottom: 1px solid #dddddd52;
+	text-transform: capitalize;
+}
+.main_list li.active{
+	background: #17a2b8!important;
+}
+.sub_list li .badge-primary{margin-left: auto;}
+.sub_list li{
+	list-style: none;
+	padding: 10px 30px;
+	border-bottom: 1px solid #fff;
+	background: #f5f5f5;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+.sub_list li.active_li{
+	background-color: #e3f2fdf2;
+	box-shadow: inset 0px 1px 0px 0px #ddd;
+}
+.description_block{
+	padding: 10px 20px;
+	flex: 1;
+}
+.description_block.active{
+	background: #e3f2fdf2;
+	box-shadow: inset 0px 1px 0px 0px #dddddda8;
+}
+.sub_list li.read{background: #dddddd4a;color: #b1a4a4!important;}
+.sub_list li.unread{background: #f5f5f5;font-weight: bold;}
+.actions {cursor: pointer;color: transparent;}
+.moveTo,[job="moveall"]{ position: relative; }
+.movelist{ position: absolute; top: 18px; left: 0; border: 1px solid #ddd; 
+	border-radius: 4px; background: #fff; z-index: 2; display: none;
+}
+.movelist > div{ border-bottom: 1px solid #ddd; padding: 5px 10px; 
+	color: #888; text-align: left; text-transform: capitalize;}
+.movelist > div:last-child{ border-bottom: none; }

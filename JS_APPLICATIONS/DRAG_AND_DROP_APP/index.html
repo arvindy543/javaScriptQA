@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Drag and Drop Application </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <!-- <script src="https://kit.fontawesome.com/46223a1980.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+<div class="wrapper">
+     <div class="justify-content-center align-items-center d-flex p-0 header bg-success">
+        <h5 class="m-0 p-0 text-white" style="letter-spacing: 0.6rem"> Drag and Drop Application  </h5>  
+     </div> 
+</div>
+
+<div class="container px-0">
+   <div class="row" id="list_row"> 
+        <!-- <div class="col-sm-3 my-3">
+          <div class="list_wrapper">
+           <div class="single_list"> 
+               <div class="card_title"> Things To Do <span class="list_actions"> ...</span> </div>
+               <div class="card_item" draggable="true" id="11"> card item 1_1 </div>
+               <div class="card_item" draggable="true" id="12"> card item 1_2 </div>
+               <div class="card_item" draggable="true" id="13"> card item 1_3 </div>
+               <div class="add_another_card"> 
+                  <span class="add_card_btn"> + Add another card </span>
+                  <form class="add_form" id="add_card_form"> 
+                    <textarea class="form-control" placeholder="Enter card title..."></textarea>
+                    <div class=" mt-2"> 
+                      <button class="btn btn-sm btn-success mr-1">Add List</button>
+                      <button class="btn btn-sm btn-danger">close</button>
+                    </div>
+                  </form> 
+               </div>
+               <div class="pop-over is-shown">
+                  <div class="no-back">
+                      <div class="pop-over-header js-pop-over-header">
+                        <span class="pop-over-header-title">List Actions</span>
+                        <a href="#" class="pop-over-header-close-btn icon-sm icon-close text-danger"> close </a>
+                      </div>
+                      <div class="pop-over-content">
+                          <ul class="pop-over-list">
+                              <li><a class="js-add-card" href="#">Add Card…</a></li>
+                              <li><a class="js-copy-list" href="#">Copy List…</a></li>
+                              <li><a class="highlight-icon js-list-subscribe" href="#">Watch </a></li>
+                          </ul>
+                          <hr />
+                          <ul class="pop-over-list">
+                              <li><a class="js-move-cards" href="#">Move All Cards in This List…</a></li>
+                              <li><a class="js-archive-cards" href="#">Archive All Cards in This List…</a></li>
+                          </ul>
+                          <hr />
+                          <ul class="pop-over-list">
+                              <li><a class="js-close-list" href="#">Archive This List</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+           </div>
+          </div> 
+        </div> -->
+
+     
+     <div class="col-sm-3 my-3">
+          <div class="add_another_list"> 
+            <span class="add_list_open"> + Add new list</span>
+            <form class="add_form" id="add_list_form"> 
+              <input type="text" class="form-control" placeholder="Enter list title..." id="list_value" autocomplete="off">
+              <div class="mt-2"> 
+                <button type="submit" class="btn btn-sm btn-success mr-1" id="add_list_btn">Add List</button>
+                <button type="button" class="btn btn-sm btn-danger" id="close_btn">close</button>
+              </div>
+            </form> 
+          </div>
+     </div>
+   </div>
+</div>
+    
+<script  type="text/javascript" src="custom.js"></script>
+</body>
+</html>

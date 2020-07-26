@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body> 
+<div  id="div_body" style="height: 200px; width: 200px; background: red">
+	
+</div>
+
+
+<script> 
+	
+
+	function myFunc(){
+		let colorValue = '0123456789abcdef';
+	    let colorCode = '#';
+		for(let i=0 ; i < 6; i++){
+		    let getChar = colorValue.charAt(Math.floor(Math.random() * colorValue.length));
+			colorCode += getChar.toString();
+		}
+		console.log(colorCode);
+		document.querySelector('#div_body').style.backgroundColor = colorCode;
+	}
+	// setInterval	(()=>myFunc(),1000)
+
+	
+</script> 
+</body> 
+</html>

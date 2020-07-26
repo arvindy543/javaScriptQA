@@ -1,0 +1,52 @@
+body {
+  font-family: "MuseoModerno", cursive;
+}
+.header {
+  height: 55px;
+  color: #ffffff;
+  z-index: 9;
+}
+#list_items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: green;
+}
+#list_items li small {
+  cursor: pointer;
+}
+.check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+[job="delete"] {
+  cursor: pointer;
+}
+
+.edit_box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  background: #cddc3980;
+  display: none;
+}
+#edit_form {
+  background: #0f7714;
+  padding: 15px;
+  border-radius: 5px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

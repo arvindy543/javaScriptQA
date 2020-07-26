@@ -1,0 +1,198 @@
+ ******************* difference b/w ForEach and Map function *******************
+1. forEach return undefined and map return new array
+2. chaining is not possible in foreach but possible in map
+3. foreach mutate the array but map doesn't
+4. Both does't change the original array
+5. Both changes original array if it is array of object
+6. ‘return’ / 'continue' / break doesn’t stop looping in forEach
+
+
+ ******************* push/pop unshift/shift splice/slice *******************
+push/unshift - return the length and change the original array
+pop/shift - return the popped element and change the original array
+
+
+ ******************* Anonymous function *******************
+function without name is called Anonymous function
+
+
+ ******************* Assosiated Array in js *******************
+array with letter index is called associated array
+
+
+ ******************* Check if a value is Object in js *******************
+(A). !!a && a.constructor === Object
+
+
+ ******************* Check if a value is Array in js *******************
+(A). Array.isArray(variable) 
+(B). variable instanceof Array
+(c). !!a && a.constructor === Array
+
+***************************** let/var/const *****************************
+-- let == block scoped / not hoisted
+-- var == function scoped / hoisted
+Note --> declaration is not hoisted but assignment of value is hoisted
+const arr = [1,2,3]
+arr = [2,2,4] re-assignment of value is not possible in const
+let/const don't allow re-declaration
+
+
+***************************** Arrow Function *****************************
+- arrow function is not hoisted
+-
+let a= 4;let b = 5
+const fnn = ()=> a+b  // no need to pass argument (a,b) in arrow function
+console.log(fnn(a,b))
+
+
+***************************** Includes Method in array *****************************
+-- return true/false if value exist or not exist in array
+
+
+******************* Page: DOMContentLoaded, load, beforeunload, unload **********************
+The lifecycle of an HTML page has three important events:
+
+DOMContentLoaded – the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may be not yet loaded.
+load – not only HTML is loaded, but also all the external resources: images, styles etc.
+beforeunload/unload – the user is leaving the page.
+
+
+***************************** !! operator *****************************
+console.log(0 == false) // true
+console.log(0 === false) // false
+console.log(!0 == false) // false
+console.log(!0 === false) // false
+console.log(!!0 == false) // true
+console.log(!!0 === false) // true
+
+let a = 5
+console.log(a == false) // false
+console.log(a === false) // false
+console.log(!a == false) // true
+console.log(!a === false) // true
+console.log(!!a == false) // false
+console.log(!!a === false) // false
+
+
+***************************** findIndex Method in Array *****************************
+let marr= [{id:1, name:'arv'}, {id:2, name:'arv22'},{id:2, name:'arv222'}]
+let mres =  marr.findIndex((val, index) =>  val.name == 'arv222')
+console.log(marr) // don't change the original array
+console.log(mres) // return the index of first matched value
+
+
+***************************** Rest parameter *****************************
+let addval = [1,2,3]
+const addFn = (x,y,z) => x + y + z;
+console.log(addFn.apply(null, addval)) // we can use array as argument in apply
+console.log(addFn(...addval))          // better way to pass array as argument
+
+function test(...arg){
+  console.log(arg) // will give an array
+}
+test(2,3,4)
+
+const myArr = [2,3,4]
+const clone = [...myArr] // clone array
+console.log(clone)
+
+let obj1 = { foo: 'bar', x: 42 };
+let obj2 = { foo: 'baz', y: 13 };
+const mObj1 = {...obj1, ...obj2} 
+const mObj2 = {...obj2, ...obj1}
+console.log(mObj1) //// Object { foo: "baz", x: 42, y: 13 }
+console.log(mObj2) //// Object { foo: "bar", x: 42, y: 13 }
+
+let obj1 = { foo: 'bar', x: 42 };
+let obj2 = { foo: 'baz', y: 13 };
+const merge = ( ...objects ) => ( { ...objects } ); // will give object
+let mergedObj1 = merge (obj1, obj2);
+let mergedObj2 = merge ({}, obj1, obj2);
+console.log(mergedObj1)
+console.log(mergedObj2)
+
+
+************************* value.split() method in string *******************
+let num = "12345";
+console.log(num.split('', 2)) ['1','2'] // will include only 2 index
+
+var str = "Howareyoudoingtoday?";
+var res = str.split("o");
+console.log(res) //["H", "warey", "ud", "ingt", "day?"]
+
+
+************************* Math.max() and Math.min() ***********************
+-- return max and min value
+var a = Math.max(5, 10);
+var b = Math.max(0, 150, 30, 20, 38);
+var c = Math.min(-5, 10);
+var d = Math.min(-5, -10);
+var e = Math.max(2.511, 2.512);
+
+
+ 
+************************* Nullish_coalescing_operator (??) and (||) ***********************
+
+(A). ---------- ?? Operator--------------
+-- if LeftSided Value is null or undefined then value will be RightSided otherwise LeftSided
+
+let val = {id:1}
+console.log(val['id'] ?? 22) // 1
+console.log(val['name'] ?? 22) // 22 val['name'] is undefined so it will go to RightSidedValue
+
+(A). ---------- || Operator--------------
+
+console.log(undefined || 22)
+console.log('' || 22)
+console.log(null || 22)
+console.log(NaN || 22)
+console.log(0 || 22)
+
+Note--->>if All above left value(undefined, null, '', 0, NaN) is then RightSided will be counted otherwise LeftSided
+
+console.log(true || 22)
+console.log('string' || 22)
+
+
+
+
+
+************************* Optional_Chaining_Operator (?.) ***********************
+
+
+
+
+
+
+
+************************* Ques-->> Add two array *************************
+const arr1 = [1,2,3,4,]
+const arr2 = [1,2,3,4,5,6]
+const res = []
+const addArray = (a1,a2) => {
+	for (var i = 0; i < Math.max(arr2.length,arr1.length); i++) {
+		res.push(a1[i] ?? 0 + a2[i] ?? 0)
+	}
+}
+addArray(arr1,arr2)
+console.log(res)
+
+
+
+************************* Ques-->> Drag and Drop Events *************************
+Event	    On Event Handler	Fires when…
+
+drag	    ondrag	            …a dragged item (element or text selection) is dragged.
+dragend	    ondragend	        …a drag operation ends (such as releasing a mouse button or hitting the Esc key;  see Finishing a Drag.)
+
+dragenter	ondragenter	        …a dragged item enters a valid drop target. (See Specifying Drop Targets.)
+dragexit	ondragexit	        …an element is no longer the drag operation's immediate selection target.
+dragleave	ondragleave	        …a dragged item leaves a valid drop target.
+dragover	ondragover	        …a dragged item is being dragged over a valid drop target, every few hundred milliseconds.
+
+dragstart	ondragstart			…the user starts dragging an item. (See Starting a Drag Operation.)
+drop		ondrop				…an item is dropped on a valid drop target. (See Performing a Drop.)
+
+
+

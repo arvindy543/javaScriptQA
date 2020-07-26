@@ -1,0 +1,15 @@
+body{
+	font-family: 'Courgette', cursive;
+}
+.header{ height: 100px; }
+#list_items li{ display: flex; justify-content: space-between; align-items: center; }
+.check {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+[job="delete"]{cursor: pointer;}

@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body> 
+<script> 
+	// ******************************** Recusion ********************************
+	// Recursion is a technique for iterating over an operation by having a function call itself repeatedly until it arrives at a result. 
+	//# Example #1 mutiply 4*3*2*1 = 24 factorial series
+	let num = 1
+	function multi(value){
+		if(value > 0 ){
+			console.log(value)
+			num *= value;
+			return multi(value-1)
+		}
+		else{
+			return value
+		}
+
+	}
+// multi(4)
+// console.log(num)
+
+// # Example #2 --------------------------------------
+// person_name person_address_personalAdd_city
+const person = {
+	name: 'arvind',
+	address: {
+		personalAdd : {
+			city: 'agra',
+			contactNo:{
+				mob: 12322,
+				landline: 2299200
+			}
+		}
+	},
+	hobbies : 'Youtuber'
+}
+
+const result = {} 
+function myfunction(person_arg, parent){
+	for(key in person_arg){		
+		if(typeof person_arg[key] === 'object'){
+			 myfunction(person_arg[key], parent+'_'+key)
+		}
+		else{
+			result[parent+'_'+key] = person_arg[key]
+		}
+	}
+}
+// myfunction(person, 'person')
+// console.log(result)
+
+
+// # Example #3 --------------------------------------
+// pow(2,2) 4 22
+// pow(2,3) 8 222
+// pow(2,4) 8 2222
+
+// Approach # 1st
+
+let getPower = (a,b) => {
+	let myVal = a
+	for(let i=1; i < b; i++){
+		myVal *= a
+	}
+	return myVal
+}
+
+// console.log(getPower(-2,4))
+
+// Approach # 2nd
+
+function powerFn(x,n){
+	if(n == 1) {
+		return x
+	}
+	else {
+		return x * powerFn(x, n - 1) 
+	} 
+}
+// console.log(powerFn(2,4));
+
+// # Example #4 --------------------------------------
+
+let company = {
+  sales: [{name: 'John',salary: 1000}, { name: 'Alice',salary: 1600}],
+  development: { sites: [{name: 'Peter',salary: 2000}, {name: 'Alex',salary: 1800}],
+                 internals: [{ name: 'Jack', salary: 1300}]
+               }
+};
+
+
+function sumSalaries(department) {
+  if (department instanceof Array) {
+    return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
+  } else { 
+    let sum = 0;
+    for (let subdep of Object.values(department)) {
+      sum += sumSalaries(subdep); // recursively call for subdepartments, sum the results
+    }
+    return sum;
+  }
+}
+
+// console.log(sumSalaries(company)); // 7700
+
+// ================= Remove duplicate in array =========================
+let dNumbers = [2,2,3,3,4,6,6,6] 
+ dNumbers.forEach((val,index)=> {
+	if(dNumbers[index-1] === val){ delete dNumbers[index]}
+})
+
+console.log(dNumbers)
+
+
+
+
+
+
+</script> 
+</body> 
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<body> 
+<script> 
+	// ******************************* Destructuring *******************************
+	[x,y,...restt] = [10,20,30,40]
+	// console.log(x) ;
+	// console.log(y); 
+	// console.log(restt) ;
+
+	// Stage 4(finished) proposal
+	// ({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+	// console.log(a); // 10
+	// console.log(b); // 20
+	// console.log(rest); // {c: 30, d: 40}
+
+	function Person(name, age){
+		this.name = name;
+		this.age = age;
+		this.address = {
+			per_add : 'banda',
+			off_add : {
+				tel:12343,
+				fax:12334
+			}
+		}
+	}
+	const person1 = new Person('Arv', 25)
+	console.log(person1)
+	const {name,age,address:{per_add, off_add:{tel,fax}}} = person1
+	console.log(name,age,per_add,tel,fax) 
+
+
+</script> 
+</body> 
+</html>

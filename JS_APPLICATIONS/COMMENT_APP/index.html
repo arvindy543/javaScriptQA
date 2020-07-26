@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>  Comment and Reply Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <!-- <script src="https://kit.fontawesome.com/46223a1980.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+<div class="wrapper">
+     <div class="justify-content-center align-items-center d-flex p-0 header bg-success">
+        <h5 class="m-0 p-0 text-white" style="letter-spacing: 0.6rem"> Comment and Reply Application  </h5>  
+     </div> 
+</div>
+
+<div class="container px-0">
+   <div class="row"> 
+
+     <div class="col-sm-3 my-3">
+         <form id="comment_form">
+            <div class="form-group">
+              <label >Comment Section:</label>
+              <input type="text" class="form-control" placeholder="add comment here..." id="comment_value" autocomplete="off" autofocus="true">
+            </div>
+            <button type="submit" class="btn btn-success">Comment</button>
+          </form>
+     </div>
+
+     <div class="col-sm-9 my-3">
+        <ul class="list-group" id="list_wrapper">
+          <!-- <li class="list-group-item">First item <small class="mx-1 text-primary"> Like</small> <small class="mx-1 text-info"> Reply</small>
+              <ul class="list-group">
+                <li class="list-group-item">First item 11 <small class="mx-1 text-primary"> Like</small> <small class="mx-1 text-info"> Reply</small></li>
+                <li class="list-group-item">Second item 11 <small class="mx-1 text-primary"> Like</small> <small class="mx-1 text-info"> Reply</small></li>
+                <li class="list-group-item">Third item 11 <small class="mx-1 text-primary"> Like</small> <small class="mx-1 text-info"> Reply</small></li>
+              </ul>
+          </li>
+          <li class="list-group-item">Second item <small class="mx-1 text-primary"> Like</small> <small class="mx-1 text-info"> Reply</small></li>
+          <li class="list-group-item">Third item <small class="mx-1 text-primary"> Like</small> <small class="mx-1 text-info"> Reply</small></li> -->
+        </ul>
+     </div>
+   </div>
+</div>
+
+<div class="reply_box"> 
+    <form id="reply_form"class="reply_form_class">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Reply here..." id="reply_value" autocomplete="off"
+         autofocus="on">
+      </div>
+      <button type="submit" class="btn btn-success btn-sm" id="submit_reply_btn">Reply</button>
+      <button type="button" class="btn btn-danger btn-sm" id="reply_form_close">Close</button>
+    </form>
+</div>
+
+
+<script  type="text/javascript" src="custom.js"></script>
+</body>
+</html>

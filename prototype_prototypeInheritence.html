@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body> 
+
+
+<script> 
+// ************** Prototype and Prototype Inheritance ****************
+
+// -------Constructor function---------
+ function User(fname,lname,age) {
+ 	// var this = {}  (automatic added by js when see new keyword)
+	this.firstName = fname;
+	this.lastName = lname;
+	this.age = age
+	// return this (automatic added by js when see new keyword)
+}
+
+let newuser1 = new User( 'arvind',...[,],11);//want to skip 2nd argument (1st choice)
+let newuser2 = new User( 'arvind22',undefined,22);//want to skip 2nd argument (2nd choice)
+let newuser3 = new User( 'arvind33',...Array(1),33);//want to skip 2nd argument (3rd choice)
+
+// console.log(newuser1)
+// console.log(newuser2)
+// console.log(newuser3)
+
+//-------------Normal function---------
+function foo(fname,lname,age){
+	let obj = {}
+	obj.firstName = fname;
+	obj.lastName = lname;
+	obj.age = age;
+	return obj;
+}
+// console.log(foo('arvind44','Yadav44',33));
+// console.log(new foo('arvind44','Yadav44',33));//it's possible to call normal function using new keyword but not possible in constructor function (this is the difference)
+
+// ----------Different way to call function----------
+function myfunc(){
+ console.log(this);	// here this refer to window object
+ console.log('first method')
+} 
+// myfunc(); // Method #1
+
+let objj ={}
+objj.myfunc2 = function(){
+	console.log(this);	// here this refer to object it is associated 
+	console.log('second method')
+}
+// objj.myfunc2()  // Method #2
+
+// objj.myfunc2.call() // Method #3
+
+//-------- Add properties in object 
+function Persion(name, age){
+	this.name= name;
+	this.age = age;
+}
+const persion1 = new Persion('Arvind', 23 );
+const persion2 = new Persion('Arvind22', 24 );
+Persion.prototype.city = 'Agra'
+Persion.prototype.nameWithAge = function(){
+	return this.name + ' with age ' + this.age
+}
+// console.log(persion1.nameWithAge())
+
+// console.log(persion2.city)// city key will not show in persion1 and persion2, it's hidden u can access with object.key 
+</script> 
+</body> 
+</html>

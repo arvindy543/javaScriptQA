@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body> 
+<script> 
+// ******************************** Promise (Fetch) ********************************
+// -- first then return Promise beacause it take some time so it's promising that it will return data
+// -- need to use two times then()   
+
+const apiTest= () => {
+	fetch(`https://jsonplaceholder.typicode.com/posts/5`).then(data1 => data1.json()).then(data => console.log(data)).catch(err => console.log(err))
+}
+// apiTest()
+
+// -------------------- Async Await (Custom Promise) ----------------------------
+
+async function add(){
+	let x = await fetch(`https://jsonplaceholder.typicode.com/posts/5`)
+	return x;
+}
+// add().then(data => data.json()).then(res => console.log(res)).catch(err => console.log(err))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script> 
+</body> 
+</html>

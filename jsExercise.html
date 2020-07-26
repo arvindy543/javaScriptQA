@@ -1,0 +1,317 @@
+<!DOCTYPE html> 
+<html> 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<body> 
+	
+<script> 
+
+// 1. ----------------------------------
+
+// (function test(){
+//   var a = b =  4;
+// })()
+ // console.log(a + "a defined? " + (typeof a == 'undefined')); // true
+ // console.log(b + "b defined? " + (typeof b == 'undefined')); // false
+
+ // var a = b =  4 is not 
+ 	// var a = b;
+ 	// var b = 4;
+
+ 	// but it is
+
+ 	// var a = b
+ 	//  b = 4;
+
+// 2. ----------------------------------
+
+// var myObject = {
+//     foo: "bar",
+//     func: function() {
+//         var self = this;
+//         console.log("outer func:  this.foo = " + this.foo); // bar
+//         console.log("outer func:  self.foo = " + self.foo); // bar
+//         (function() {
+//             console.log("inner func:  this.foo = " + this.foo); // undefined
+//             console.log("inner func:  self.foo = " + self.foo); // bar
+//         }());
+//     }
+// };
+// myObject.func();
+
+// 3. ----------------------------------
+
+// difference between
+// function sumOne(a,b){return a + b}
+// // console.log(sumOne(2,4))
+
+// function sumtwo(a){
+//   return function(b){
+//   	return a + b
+//   }
+// }
+// console.log(sumtwo(2)(4))
+
+// 4. ----------------------------------
+
+// for (var i = 0; i < 5; i++) {
+//   var btn = document.createElement('button');
+//   btn.appendChild(document.createTextNode('Button ' + i));
+//   btn.addEventListener('click', function(){ console.log(i); }); //will get 5 on every btn click
+//   document.body.appendChild(btn);
+// }
+
+// Alternatively, you could wrap the entire call to btn.addEventListener in the new anonymous function:
+
+// for (var i = 0; i < 5; i++) {
+//   var btn = document.createElement('button');
+//   btn.appendChild(document.createTextNode('Button ' + i));
+//   (function (i) {
+//     btn.addEventListener('click', function() { console.log(i); });
+//   })(i);
+//   document.body.appendChild(btn);
+// }
+
+// 5. ----------------------------------
+
+// var d = {};
+// // …what is accomplished using the following code?
+
+// [ 'zebra', 'horse' ].forEach(function(k) {
+// 	d[k] = undefined;
+// });
+// console.log(d)
+// console.log(Object.keys(d)) // ensuring that there is key's of array
+
+// 6. ----------------------------------
+
+// var arr1 = "john".split('');
+// var arr2 = arr1.reverse();
+// var arr3 = "jones".split('');
+// console.log(arr1)
+// console.log(arr2)
+// console.log(arr3)
+// arr2.push(arr3);
+// console.log(arr1)
+// console.log(arr2)
+// console.log(arr3)
+
+// console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+// console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+// Calling an array object’s reverse() method doesn’t only return the array in reverse order,
+//  it also reverses the order of the array itself (i.e., in this case, arr1).
+
+// The reverse() method returns a reference to the array itself (i.e., in this case, arr1). As a result, arr2 is simply a reference to (rather than a copy of) arr1. Therefore, when anything is done to arr2 (i.e., when we invoke arr2.push(arr3);), arr1 will be affected as well since arr1 and arr2 are simply references to the same object.
+
+// 7. ----------------------------------
+
+// console.log(1 +  "2" + "2"); // '122'
+// console.log(1 +  +"2" + "2"); // '32'   +"2" is treated as number when unaryopertor (+) is added and behave like addtion
+// console.log(1 +  -"1" + "2"); // '02'   -"1" is treated as number when unaryopertor (-) is added and behave like subs
+// console.log(+"1" +  "1" + "2"); // '112'
+// console.log( "A" - "B" + "2"); // 'NaN2'
+// console.log( "A" - "B" + 2); // NaN
+
+// Example 5: "A" - "B" + "2" Outputs: "NaN2" Explanation: Since the - operator can not be applied to strings, and since neither "A" nor "B" can be converted to numeric values, "A" - "B" yields NaN which is then concatenated with the string "2" to yield “NaN2”.
+
+// Example 6: "A" - "B" + 2 Outputs: NaN Explanation: As exlained in the previous example, "A" - "B" yields NaN. But any operator applied to NaN with any other numeric operand will still yield NaN.
+
+// 8. ----------------------------------
+
+// for (var i = 0; i < 5; i++) {
+// 	setTimeout(function() { console.log(i); }, i * 1000 ) // 5 5 5 5 5
+// }
+
+// The code sample shown will not display the values 0, 1, 2, 3, and 4 as might be expected; rather, it will display 5, 5, 5, 5, and 5.
+
+// The reason for this is that each function executed within the loop will be executed after the entire loop has completed and all will therefore reference the last value stored in i, which was 5.
+
+// Closures can be used to prevent this problem by creating a unique scope for each iteration, storing each unique value of the variable within its scope, as follows:
+
+// for (var i = 0; i < 5; i++) {
+// 	( function(x) {setTimeout(function() { console.log(x); }, x * 1000 );})(i) // 0 1 2 3 4
+// }
+
+// This will produce the presumably desired result of logging 0, 1, 2, 3, and 4 to the console.
+// In an ES2015 context, you can simply use let instead of var in the original code:
+
+// for (let i = 0; i < 5; i++) {
+// 	setTimeout(function() { console.log(i); }, i * 1000 );
+// }
+
+// 9. ----------------------------------
+// var b = 1;
+// function outer(){
+//    	var b = 2
+//     function inner(){
+//         b++;
+//         var b = 4;
+//         console.log(b) // will be 4
+//     }
+//     inner();
+// }
+// outer();
+
+// 10. ----------------------------------
+// console.log(typeof typeof 1) // typeof 'number' --> string
+
+// 11. ----------------------------------
+// console.log(1 < 2 < 3); // true
+// console.log(3 > 2 > 1);// false
+
+// 12. ----------------------------------
+// var x = 21;
+// var girl = function () {
+//     console.log(x); // undefined
+//     var x = 20;
+// };
+// girl ();
+
+// It’s because JavaScript initialization/assignment is not hoisted.
+// (Why doesn’t it show the global value of 21? The reason is that when the function is executed, it checks that there’s a local x variable present but doesn’t yet declare it, so it won’t look for global one.)
+
+// 13. ----------------------------------
+
+// var length = 10;
+// function fn() {
+// 	console.log(this.length);
+// }
+
+// var obj = {
+//   length: 5,
+//   method: function(fn) {
+//     fn();
+//     arguments[0]();
+//   }
+// };
+
+// obj.method(fn, 1);
+
+// 14. ----------------------------------
+// this.age = 23;
+// let age = 20;
+
+// const mobj = {
+//     add(){return this.age + 10},
+//     age: 5
+// }
+
+// console.log(this.age) 
+// console.log(age)  
+// console.log(mobj.add())
+
+// 15. ------------------------------------
+// function check(){
+//     name15 = 'arvind';
+//     var midname15 = 'kumar';
+//     let lastname15 = 'yadav';
+// }
+// console.log(name15 , 'in 15')
+// console.log(this.name15,'in 15')
+// console.log(midname15)
+// console.log(lastname15)
+// check();
+// console.log(name15 , 'in 15')
+// console.log(this.name15,'in 15')
+// console.log(midname15)
+// console.log(lastname15)
+
+// 16. ------------------------------------
+// let arr1 = [10,20];
+// let arr2 = [...arr1];
+// arr2[1] = 11;
+// console.log(arr1)
+// console.log(arr2)
+
+// let obj = {name:'ar', id:1}
+// let obj2 = {...obj}
+// obj.id = 2
+// console.log(obj)
+// console.log(obj2)
+
+// 17. ------------------------------------
+// const x = {}
+// const x1 = {id:1}
+// const x2 = {id:2}
+// console.log(x[x1])
+// console.log(x[x2])
+
+// 18. ------------------------------------
+// const objj = {id:1, age:22};
+// console.log(Object.isExtensible(objj))
+// Object.preventExtensions(objj) // after this can edit, delete but not add
+// console.log(Object.isExtensible(objj))
+// Object.freeze(objj) // add, edit, delete all not allow 
+// Object.seal(objj) // can only edit, add and delete not allow 
+
+// 19. ------------------------------------
+// function mfn(){
+// 	name = 'rvind';
+// 	var name;
+// 	return name;
+// }
+
+// console.log(mfn())
+// console.log(this.name)
+// console.log(name)
+
+// 20. ------------------------------------
+// let x = '22'
+// let y = '022'
+// console.log(x == y)
+// console.log(x === y)
+// console.log(x >= y)
+// console.log(x <= y)
+
+// 21. ------------------------------------
+// console.log(0 == '0')
+// console.log(0 == [])
+// console.log('0' == [])
+
+// 22. ------------------------------------
+// const object = {name:'JavaScript', value:22}
+// let {name, value:num} = object
+// console.log(name, num)
+// object.name = 'js';
+// console.log(name, num)
+// console.log(object)
+
+// 23. ------------------------------------
+// let object = {
+// 	name:'JavaScript',
+// 	value: 20,
+// 	add(val){
+// 		// console.log(this.value)
+// 		function number(val){
+// 			return val* this.value
+// 		};
+// 		console.log(number(2))
+// 		// return number(val);
+// 	}
+// }
+// // console.log(object.add(10))
+// object.add(10)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script> 
+</body> 
+</html>
